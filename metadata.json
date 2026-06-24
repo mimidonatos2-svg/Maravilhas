@@ -1,0 +1,8 @@
+{
+  "name": "Rádio Deus de Maravilhas",
+  "description": "Rádio e TV Deus de Maravilhas - A rádio que toca o seu coração.",
+  "requestFramePermissions": [],
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
+}

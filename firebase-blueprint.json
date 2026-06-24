@@ -1,0 +1,208 @@
+{
+  "entities": {
+    "versiculo": {
+      "title": "Versículo do Dia",
+      "description": "Texto bíblico e referência do dia com imagem de fundo",
+      "type": "object",
+      "properties": {
+        "texto": { "type": "string", "description": "Texto do versículo" },
+        "referencia": { "type": "string", "description": "Referência bíblica (Ex: João 3:16)" },
+        "imagem": { "type": "string", "description": "URL da imagem de fundo" }
+      },
+      "required": ["texto", "referencia", "imagem"]
+    },
+    "radio": {
+      "title": "Configurações da Rádio",
+      "description": "Configurações de streaming e metadados da rádio",
+      "type": "object",
+      "properties": {
+        "nome": { "type": "string", "description": "Nome da rádio" },
+        "streamingUrl": { "type": "string", "description": "URL de transmissão da rádio" },
+        "logoUrl": { "type": "string", "description": "URL da logomarca" },
+        "status": { "type": "string", "description": "Status da rádio (online/offline)" }
+      },
+      "required": ["nome", "streamingUrl", "status"]
+    },
+    "tv": {
+      "title": "Configurações da TV Deus de Maravilhas",
+      "description": "Transmissão da TV Deus de Maravilhas ao vivo",
+      "type": "object",
+      "properties": {
+        "titulo": { "type": "string", "description": "Título da transmissão" },
+        "videoUrl": { "type": "string", "description": "Link do YouTube ou M3U8" },
+        "imagemCapa": { "type": "string", "description": "URL da imagem de capa" },
+        "tipo": { "type": "string", "description": "Tipo de stream (youtube/m3u8)" }
+      },
+      "required": ["titulo", "videoUrl", "tipo"]
+    },
+    "programacao": {
+      "title": "Programação da Rádio",
+      "description": "Item de programação com horário e descrição",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string", "description": "ID exclusivo" },
+        "horarioInicio": { "type": "string", "description": "Horário de início (Ex: 08:00)" },
+        "horarioFim": { "type": "string", "description": "Horário de término (Ex: 09:30)" },
+        "nome": { "type": "string", "description": "Nome do programa" },
+        "descricao": { "type": "string", "description": "Descrição do programa" },
+        "imagem": { "type": "string", "description": "URL da imagem opcional" },
+        "diasSemana": { "type": "string", "description": "Dias da semana (Ex: 'Seg-Sex', 'Todos os dias')" }
+      },
+      "required": ["horarioInicio", "horarioFim", "nome", "descricao"]
+    },
+    "deus_para_voce": {
+      "title": "Vídeos Deus Para Você",
+      "description": "Vídeos cristãos cadastrados pela administração",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "titulo": { "type": "string" },
+        "descricao": { "type": "string" },
+        "videoUrl": { "type": "string" },
+        "thumbnail": { "type": "string" },
+        "categoria": { "type": "string" },
+        "tipo": { "type": "string", "description": "youtube, mp4, m3u8" },
+        "dataPublicacao": { "type": "string" },
+        "ordem": { "type": "integer" }
+      },
+      "required": ["titulo", "videoUrl", "tipo"]
+    },
+    "podcasts": {
+      "title": "Podcasts Gravados",
+      "description": "Programas e episódios de podcasts gravados",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "titulo": { "type": "string" },
+        "descricao": { "type": "string" },
+        "imagem": { "type": "string" },
+        "audioUrl": { "type": "string" },
+        "dataCriacao": { "type": "string" }
+      },
+      "required": ["titulo", "audioUrl"]
+    },
+    "pedidos_oracao": {
+      "title": "Pedidos de Oração",
+      "description": "Pedidos de oração enviados pelos fiéis",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "nome": { "type": "string" },
+        "cidade": { "type": "string" },
+        "pedido": { "type": "string" },
+        "dataEnvio": { "type": "string" },
+        "lido": { "type": "boolean" }
+      },
+      "required": ["nome", "pedido", "dataEnvio"]
+    },
+    "palavra": {
+      "title": "Oração e Palavra",
+      "description": "Devocionais, estudos bíblicos, mensagens e reflexões",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "categoria": { "type": "string", "enum": ["Devocional", "Estudo Bíblico", "Mensagem", "Reflexão", "Destaque"] },
+        "titulo": { "type": "string" },
+        "conteudo": { "type": "string" },
+        "imagem": { "type": "string" },
+        "dataCriacao": { "type": "string" }
+      },
+      "required": ["categoria", "titulo", "conteudo"]
+    },
+    "doacoes": {
+      "title": "Informações de Doação",
+      "description": "Chave PIX e texto de campanha de arrecadação",
+      "type": "object",
+      "properties": {
+        "chavePix": { "type": "string" },
+        "qrCodePixUrl": { "type": "string" },
+        "textoCampanha": { "type": "string" }
+      },
+      "required": ["chavePix", "textoCampanha"]
+    },
+    "redes_sociais": {
+      "title": "Redes Sociais",
+      "description": "Links para canais oficiais e contatos",
+      "type": "object",
+      "properties": {
+        "whatsapp": { "type": "string" },
+        "instagram": { "type": "string" },
+        "facebook": { "type": "string" },
+        "youtube": { "type": "string" }
+      },
+      "required": []
+    },
+    "notificacoes": {
+      "title": "Notificações Enviadas",
+      "description": "Histórico de notificações push enviadas pelo painel",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "titulo": { "type": "string" },
+        "corpo": { "type": "string" },
+        "dataEnvio": { "type": "string" }
+      },
+      "required": ["titulo", "corpo", "dataEnvio"]
+    },
+    "administradores": {
+      "title": "Administradores",
+      "description": "E-mails autorizados com acesso administrativo",
+      "type": "object",
+      "properties": {
+        "email": { "type": "string" },
+        "nome": { "type": "string" }
+      },
+      "required": ["email"]
+    }
+  },
+  "firestore": {
+    "versiculo/dia": {
+      "schema": "versiculo",
+      "description": "Documento único que contém o versículo do dia"
+    },
+    "radio/config": {
+      "schema": "radio",
+      "description": "Configurações gerais da rádio"
+    },
+    "tv/config": {
+      "schema": "tv",
+      "description": "Configurações gerais de transmissão de TV ao vivo"
+    },
+    "programacao": {
+      "schema": "programacao",
+      "description": "Grade de horários e programas da rádio"
+    },
+    "deus_para_voce": {
+      "schema": "deus_para_voce",
+      "description": "Lista de vídeos de fé"
+    },
+    "podcasts": {
+      "schema": "podcasts",
+      "description": "Coleção de podcasts gravados"
+    },
+    "pedidos_oracao": {
+      "schema": "pedidos_oracao",
+      "description": "Pedidos de oração recebidos"
+    },
+    "palavra": {
+      "schema": "palavra",
+      "description": "Textos espirituais e estudos"
+    },
+    "doacoes/config": {
+      "schema": "doacoes",
+      "description": "Configuração da campanha e PIX"
+    },
+    "redes_sociais/links": {
+      "schema": "redes_sociais",
+      "description": "Canais e redes sociais"
+    },
+    "notificacoes": {
+      "schema": "notificacoes",
+      "description": "Notificações disparadas"
+    },
+    "administradores": {
+      "schema": "administradores",
+      "description": "Usuários autorizados a gerenciar o app"
+    }
+  }
+}
